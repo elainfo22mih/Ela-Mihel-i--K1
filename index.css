@@ -1,0 +1,197 @@
+<style>
+  html,body {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 50px;                /* body margine 50px */
+    font-family: "Courier New", Courier, monospace; /* Courier */
+    font-size: 18px;             /* 18px */
+    background: #fff;
+    color: #000;
+  }
+
+  .main-table {
+    width: 650px;                        /* 650px */
+    border: 4px double #000;             /* 4px  */
+    border-radius: 10px;                 /* 10px */
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    table-layout: fixed;
+  }
+  .main-table td, .main-table th {
+    border: 1px solid #000;            
+    padding: 0;
+    vertical-align: top;
+  }
+
+  /* NASLOV  */
+  h1.paragraf-title {
+    font-size: 24px;                     /* 24px */
+    padding: 10px;                       /* odmak od ruba ćelije 10px */
+    margin: 0;
+    font-weight: 700;                    /* podebljano */
+    text-shadow: 1px 1px 0 rgba(128,128,128,0.8); /* sjenka 1px sive boje */
+    color: hsla(30,100%,50%,1);          /* narančasta kroz HSL (bez alfa jer treba jaka) */
+  }
+
+  /* Paragraf tekst */
+  .paragraf {
+    display: block;
+    margin: 10px;                        /* udaljen 10px od ruba */
+    width: 97%;                          /* širina 97% */
+    text-transform: uppercase;           /* verzal */
+    text-align: justify;                 /* isključen obostrano = justify */
+    padding: 0 10px 10px 10px;
+    box-sizing: border-box;
+  }
+
+  /* Lista + linkovi (prema slici/uputama) */
+  .nav-list {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+  }
+  .nav-list li {
+    margin: 4px;                         /* vanjski razmak 4px */
+  }
+  .nav-list a {
+    display: block;
+    padding: 10px;                       /* unutarnji 10px */
+    background: rgba(255,165,0,0.8);     /* narančasta, alfa 0.8 (80% transparentnosti prema uputi) */
+    text-decoration: none;
+    font-weight: 700;                    /* podebljano */
+    font-size: 20px;                     /* 20px */
+    color: #000;
+    box-sizing: border-box;
+    width: 300px;                        /* zadržavanje dimenzija (može se prilagoditi) */
+    border-radius: 4px;
+    transition: all 0.15s ease;
+  }
+  .nav-list a:hover, .nav-list a:focus {
+    text-shadow: 2px 2px 4px rgba(128,128,128,0.9); /* 2px po osi + blur, siva */
+    font-style: italic;                  /* italik */
+    outline: 1px solid rgba(128,128,128,1); /* okvir 1px siva */
+  }
+
+  /* Tablica 2 (unutarnja tablica) */
+  .table2 {
+    width: 100%;                         /* 100% širine ćelije u kojoj se nalazi */
+    height: 500px;                       /* visina 500px */
+    border: 1px solid #000;              /* 1px crne boje */
+    background: hsla(30,100%,50%,0.7);   /* narančasta HSL s alfa 0.7 */
+    border-top-left-radius: 100px;       /* gornji lijevi rub 100px */
+    border-top-right-radius: 100px;      /* gornji desni rub 100px */
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow: hidden;
+  }
+  .table2 td {
+    width: 100%;                          /* širina ćelije 20% */
+    height: 500%;                         /* visina ćelije 20% */
+    border: 1px solid rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    padding: 6px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  /* Obojane ćelije s HSL i alfa 0.5 (50% prozirnosti) */
+  .cell-hsl-1 { background: hsla(200,80%,60%,0.5); }
+  .cell-hsl-2 { background: hsla(140,60%,45%,0.5); }
+  .cell-hsl-3 { background: hsla(300,60%,60%,0.5); }
+
+  /* Narančasta ćelija: zaobljenost rubova i točkasti okvir 3px */
+  .cell-orange {
+    background: hsla(30,100%,50%,0.5);   /* narančasta s alfa 0.5 */
+    border-radius: 12px;                 /* zaobljenost rubova */
+    border: 3px dotted rgba(0,0,0,0.6);  /* točkasti okvir debljine 3px */
+  }
+
+  /* FORMA */
+  form.custom-form {
+    width: 100%;                         /* forma zauzima 100% širine ćelije */
+    background: hsla(30,100%,50%,0.7);   /* ista boja kao kod 2. tablice */
+    border: 2px solid #000;              /* 2px crni okvir */
+    border-radius: 10px;                 /* 10px zaobljenost */
+    padding: 20px;                       /* unutarnji razmak 20px */
+    box-sizing: border-box;
+  }
+  .custom-form label {
+    display: block;
+    margin: 10px 0;                      /* svi label elementi imaju vanjsku prazninu 10px */
+    font-weight: 700;                    /* podebljano */
+  }
+  .custom-form input[type="text"],
+  .custom-form input[type="password"],
+  .custom-form input[type="email"],
+  .custom-form input[type="url"],
+  .custom-form input[type="color"],
+  .custom-form textarea,
+  .custom-form select {
+    background: hsla(60,100%,50%,0.9);   /* žuta HSL, 90% transparentna (alpha 0.9) */
+    width: 95%;                          /* širina elemenata 95% */
+    margin: 10px 0;                      /* vanjska praznina 10px */
+    padding: 5px;                        /* unutarnja 5px */
+    border-radius: 10px;                 /* neki rubovi 10px */
+    border: 2px solid rgba(128,128,128,1); /* 2px sive boje */
+    font-family: "Courier New", Courier, monospace;
+    box-sizing: border-box;
+  }
+  .custom-form input:focus {
+    background: hsla(60,100%,50%,0.8);   /* aktivni input: ista boja, 80% transparentna (alpha 0.8) */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.05) inset;
+  }
+
+  /* Radio i checkbox veličine i margina */
+  .custom-form input[type="radio"],
+  .custom-form input[type="checkbox"] {
+    width: 20px;                         /* širina 50px */
+    height: 18px;                        /* visina 15px */
+    margin-left: 80px;                   /* lijeva margina 80px */
+    transform: translateY(2px);          /* malo vizualno poravnanje */
+    vertical-align: middle;
+  }
+
+  /* Fieldset */
+  fieldset.custom-fieldset {
+    width: 60%;                          /* širina 60% */
+    margin: 15px 0;                      /* vanjske bjeline (praznine) 15px */
+    background: hsla(60,100%,50%,0.9);   /* boja kao input elemenata */
+    border-radius: 50px;                 /* zaobljenost 50px */
+    border: 2px solid rgba(128,128,128,1); /* rub 2px sive boje */
+    padding: 10px 15px;
+    font-size: 25px;                     /* veličine teksta 25px */
+    box-sizing: border-box;
+  }
+
+  /* Polje za odabir boje dimenzije */
+  input[type="color"] {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: 2px solid rgba(128,128,128,1);
+    border-radius: 6px;
+  }
+
+  /* Send & Reset buttons */
+  .btn {
+    width: 100px;                        /* širina 100px */
+    margin-left: 110px;                  /* lijeva margina 110px */
+    border-radius: 5px;                  /* zaobljenost 5px */
+    box-shadow: 2px 2px 4px rgba(128,128,128,0.6); /* sjena 2px obje osi i blur */
+    font-size: 18px;                     /* font 18px */
+    font-weight: 700;                    /* podebljan */
+    padding: 6px 8px;
+    cursor: pointer;
+  }
+
+  /* Responsive fallback: smanji glavnu tablicu na manjem ekranu */
+  @media (max-width:700px) {
+    .main-table { width: 100%; }
+    .nav-list a { width: 100%; }
+  }
+</style>
+</head>
+<body>
